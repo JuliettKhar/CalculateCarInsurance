@@ -47,6 +47,7 @@ header h1 {
 }
 #result  {
     margin-bottom: 40px;
+    text-align: right;
 }
 #result div {
     border: 1px solid #26C6DA;
