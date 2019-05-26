@@ -57,7 +57,51 @@ export class Insurance {
 	}
 	calculateQuotation(insurance) {
 		const instance = insurance;
-		console.log(instance, 'calculateQuotation')
+		let price;
+		const base = 2000;
+		const make = instance.make;
+		/*
+          1 = American 15%
+          2 = Asian 05%
+          3 = European 35%
+   */
+     switch(make) {
+     	case '1': 
+     				price = base * 1.15;
+     				break;
+     	case '2': 
+     				price = base * 1.05;
+     				break;
+     	case '3': 
+     				price = base * 1.35;
+     				break;
+
+     }
+
+   const year = instance.year;
+   const difference = this.getYearDifference(year);
+   price = price - ((difference * 3) * price) / 100;
+   const level = instance.level;
+   price = this.calculateLevel(price, level);
+   return price;
+	}
+
+	getYearDifference(year) {
+		return new Date().getFullYear() - year;
+	}
+
+	calculateLevel(price, level) {
+			   /*
+          Basic insurance is going to increase the value by 30%
+          Complete Insurance is going to increaste the value by 50%
+     */
+     if(level === 'basic') {
+     	price = price * 1.30;
+     }
+     else {
+     	price = price * 1.50;
+     }
+     return price;
 	}
 
 }

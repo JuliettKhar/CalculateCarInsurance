@@ -14,6 +14,7 @@ function onSubmit(event) {
 	else {
 			const insurance = new Insurance(makeValue, yearValue, levelInputValue);
 			const price = insurance.calculateQuotation(insurance);
+			console.log(price)
 	}
 	event.preventDefault();
 }
