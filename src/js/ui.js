@@ -4,7 +4,7 @@ class Html {
 		this.form = document.querySelector('#request-quote');
 		this.make = document.querySelector('#make');
 		this.formGroup = document.querySelector('.form-group');
-		// this.levelInput = document.querySelector('input[name="level"]:checked');
+		this.result = document.querySelector('#result');
 	}
 
 	displayMake() {
@@ -45,6 +45,12 @@ class Html {
 		setTimeout( () => {
 			document.querySelector('.error').remove();
 		}, 3000);
+	}
+
+	showResults(price) {
+			this.result.innerHTML = `
+			<p class="total">Total: $ ${price}<p/>
+			`
 	}
 
 }
